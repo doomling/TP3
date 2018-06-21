@@ -1,7 +1,8 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  background-color: #E7EEEF; }
 
 .main-wrapper {
   width: 100vw;
@@ -10,12 +11,83 @@ body {
   align-items: center;
   justify-content: center; }
 
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #FC7753;
+  border: 2px solid #FC7753;
+  background-color: white;
+  height: 40px;
+  cursor: pointer; }
+
+.button:hover {
+  background-color: #FC7753;
+  border: 2px solid white;
+  color: white; }
+
 .auth-wrapper {
   width: 300px;
-  height: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   text-align: center; }
+  .auth-wrapper .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.2rem; }
+    .auth-wrapper .input-wrapper input {
+      height: 40px; }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+  color: #FC7753;
+  border-bottom: 1px solid #007EA7; }
+  nav a, nav a:hover {
+    text-decoration: none;
+    color: #FC7753; }
+  nav img {
+    height: 25px;
+    padding: 0 5px; }
+
+.product-section {
+  padding: 2vw;
+  margin: 0;
+  min-height: 80vh;
+  width: calc(100vw - 2vw*2);
+  background-color: #E7EEEF;
+  display: flex;
+  flex-wrap: wrap; }
+
+.product-wrapper {
+  width: 250px;
+  height: 300px;
+  margin: 10px;
+  border: 1px solid #007EA7;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FC7753; }
+  .product-wrapper a, .product-wrapper a:hover {
+    color: #FC7753;
+    text-decoration: none;
+    font-size: 1.2rem; }
+  .product-wrapper .product-empty {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: column;
+    border: 1px solid #FC7753; }
+  .product-wrapper .icon {
+    height: 45px; }
 
 /*# sourceMappingURL=style.css.map */

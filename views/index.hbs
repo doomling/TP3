@@ -7,18 +7,45 @@
   </head>
   <body>
   <div class="wrapper">
-    <h1> Hola </h1>
-      {{#each product}}
-        <div>
-          <img src="{{this.url}}">
+    <nav>
+      <h1> Hola </h1>
+      <div class="login">
+        <a href="/auth">
+          <img src="images/user.svg">
+          {{status}}
+        </a>
+      </div>
+    </nav>
+    <div class="product-section">
+    {{#if product}}
+        {{#each product}}
+        <div class="product-wrapper">
+          <div class="product-img">
+            <img src="{{this.url}}">
+          </div>
+          <div class="product-name">
+            <span>{{this.name}}</span>
+          </div>
+          <div class="product-price">
+            <span>{{this.price}}</span>
+          </div>
         </div>
-        <div>
-          <span>{{this.name}}</span>
+        {{/each}}
+      {{else}}
+      <div class="product-wrapper">
+        <div class="product-empty">
+          <div class="product-button">
+            <a href="/agregar">
+              Agregar productos
+            </a>
+          </div>
+          <a href="/agregar">
+            <img class="icon" src="images/add.svg">
+          </a>
         </div>
-        <div>
-          <span>{{this.price}}</span>
-        </div>
-      {{/each}}
+      </div>
+    {{/if}}
+    </div>
   </div>
     <script
 src="https://code.jquery.com/jquery-3.3.1.min.js"

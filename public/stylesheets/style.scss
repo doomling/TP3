@@ -1,7 +1,14 @@
+$navHeight: 2vh;
+$navWidth: 100vw;
+$mainText: #FC7753;
+//$background: #CCDBDC;
+$background: #E7EEEF;
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   padding: 0;
   margin: 0;
+  background-color: $background;
 }
 
 // auth
@@ -13,12 +20,103 @@ body {
   align-items: center; justify-content: center;
 }
 
+$buttonHeight: 40px;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: $mainText;
+  border: 2px solid $mainText;
+  background-color: white;
+  height: $buttonHeight;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: $mainText;
+  border: 2px solid white;
+  color: white;
+}
+
 .auth-wrapper {
   width: 300px;
-  height: 200px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  //align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   text-align: center;
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.2rem;
+
+    input {
+      height: $buttonHeight;
+    }
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+  color: $mainText;
+  border-bottom: 1px solid #007EA7;
+
+  a, a:hover {
+    text-decoration: none;
+    color: $mainText;
+  }
+
+  img {
+    height: 25px;
+    padding: 0 5px;
+  }
+}
+
+.product-section {
+  padding: 2vw;
+  margin: 0;
+  min-height: 80vh;
+  width: calc(100vw - 2vw*2);
+  background-color: $background;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-wrapper {
+  width: 250px;
+  height: 300px;
+  margin: 10px;
+  border: 1px solid #007EA7;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $mainText;
+
+  a, a:hover {
+    color: $mainText;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .product-empty {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: column;
+    border: 1px solid $mainText;
+  }
+
+  .icon {
+    height: 45px;
+  }
 }
