@@ -14,14 +14,25 @@ $('#send').on('click', function() {
     statusCode: {
   		'302': function() {
 	  	   window.location.href = '/agregar';
-	    }
-    }
-  })
-});
+	    },
+      '401': function() {
+          if ($('.show-error').length < 1) {
+  	  	  $('#auth-wrapper').append('<span class="show-error">por favor verifique sus credenciales</span>')
+          }
+        },
+      '400': function() {
+          if ($('.show-error').length < 1) {
+    	  	    $('#auth-wrapper').append('<span class="show-error">Los campos no pueden estar vacios</span>')
+          }
+    	   }
+       }
+     });
+   });
 
 //for product loading
 
 $('#save').on('click', function() {
+
   let name = $('#product-name').val();
   let url = $('#product-url').val();
   let price = $('#product-price').val();
@@ -35,22 +46,29 @@ $('#save').on('click', function() {
       price: price,
     }
   }).done(function(data) {
-      console.log(data);
+      console.log($('#product-name').val(""));
+      $('#product-name').val("");
+      $('#product-url').val("");
+      $('#product-price').val("");
   });
 });
 
 $('#login').on('click', function() {
   let value = $(this).text();
-  console.log(value)
     if (value == 'logout') {
         $.ajax({
           url: 'http://localhost:3000/logout',
           method: 'PUT',
           data: {
             login: false
-          }
-        })
+          },
+          statusCode: {
+        		'302': function() {
+      	  	   window.location.href = '/auth';
+      	   },
+        }
+      });
     } else {
       window.location.href = '/auth';
     }
-})
+});

@@ -7,10 +7,10 @@ const products = productService.getProducts;
 
 self.logout = function (req, res) {
   let data = req.body
-  console.log(data)
   if (data.login == 'false') {
     authService.updateStatus(false)
   }
+  res.sendStatus(302)
 }
 
 self.home = function(req, res) {
@@ -18,7 +18,7 @@ self.home = function(req, res) {
 
   let status = {
     status: isAuthenticated,
-    text: 'logout'
+    text: 'login'
   }
 
   if (status.status == true) {

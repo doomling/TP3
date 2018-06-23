@@ -51,7 +51,8 @@ nav {
   border-bottom: 1px solid #007EA7; }
   nav a, nav a:hover {
     text-decoration: none;
-    color: #FC7753; }
+    color: #FC7753;
+    cursor: pointer; }
   nav img {
     height: 25px;
     padding: 0 5px; }
@@ -69,22 +70,27 @@ nav {
   width: 250px;
   height: 300px;
   margin: 10px;
+  padding: 0 10px;
   border: 1px solid #007EA7;
   background-color: white;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
   color: #FC7753; }
+  .product-wrapper .product-img {
+    width: 100%; }
+    .product-wrapper .product-img img {
+      width: 100%;
+      height: auto; }
   .product-wrapper a, .product-wrapper a:hover {
     color: #FC7753;
     text-decoration: none;
     font-size: 1.2rem; }
-  .product-wrapper .product-img {
-    width: 200px;
-    height: auto; }
   .product-wrapper .product-empty {
     width: 80%;
     height: 80%;
+    margin: auto;
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -93,14 +99,22 @@ nav {
   .product-wrapper .icon {
     height: 45px; }
 
+.show-error {
+  font-size: 14px;
+  color: red; }
+
 .product-form {
   width: 500px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   width: 300px;
   height: 500px;
   justify-content: space-around;
   text-align: center; }
+  .product-form span {
+    align-self: flex-start;
+    font-size: 1.5em; }
   .product-form input {
     height: 40px; }
 
