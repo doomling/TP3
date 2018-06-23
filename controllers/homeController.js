@@ -2,16 +2,31 @@ self = {}
 const productService = require('../services/productService');
 const authService = require('../services/authService');
 const products = productService.getProducts;
-let status = authService.authenticate;
-/* GET home page. */
-self.home = function(req, res) {
-  console.log(products)
 
-  if (status) {
-    status = 'logout'
-  } else {
-    status = 'login'
+/* GET home page. */
+
+self.logout = function (req, res) {
+  let data = req.body
+  console.log(data)
+  if (data.login == 'false') {
+    authService.updateStatus(false)
   }
+}
+
+self.home = function(req, res) {
+  let isAuthenticated = authService.user.status
+
+  let status = {
+    status: isAuthenticated,
+    text: 'logout'
+  }
+
+  if (status.status == true) {
+    status.text = 'logout'
+  } else {
+    status.text = 'login'
+  }
+
   res.render('index', {
     title: 'Catálogo',
     product: products,

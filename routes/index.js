@@ -8,6 +8,7 @@ router.get('/agregar', productController.home)
 router.post('/add', productController.addNew)
 router.get('/auth', productController.auth)
 router.post('/authenticate', productController.authenticate)
+router.put('/logout', homeController.logout)
 
 
 module.exports = router;

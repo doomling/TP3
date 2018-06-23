@@ -13,7 +13,7 @@ $('#send').on('click', function() {
     },
     statusCode: {
   		'302': function() {
-	  	   window.location.replace('/agregar');
+	  	   window.location.href = '/agregar';
 	    }
     }
   })
@@ -21,7 +21,7 @@ $('#send').on('click', function() {
 
 //for product loading
 
-$('#send').on('click', function() {
+$('#save').on('click', function() {
   let name = $('#product-name').val();
   let url = $('#product-url').val();
   let price = $('#product-price').val();
@@ -38,3 +38,19 @@ $('#send').on('click', function() {
       console.log(data);
   });
 });
+
+$('#login').on('click', function() {
+  let value = $(this).text();
+  console.log(value)
+    if (value == 'logout') {
+        $.ajax({
+          url: 'http://localhost:3000/logout',
+          method: 'PUT',
+          data: {
+            login: false
+          }
+        })
+    } else {
+      window.location.href = '/auth';
+    }
+})
